@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-21T10:44:06Z",
+  "title": "Design System: 行业研究报告生成器",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Signal Indigo",
+        "canonical": "oklch(58% 0.22 285)",
+        "tonalRamp": [
+          "oklch(15% 0.18 285)",
+          "oklch(25% 0.22 285)",
+          "oklch(35% 0.24 285)",
+          "oklch(45% 0.23 285)",
+          "oklch(58% 0.22 285)",
+          "oklch(70% 0.16 285)",
+          "oklch(82% 0.09 285)",
+          "oklch(94% 0.03 285)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Deep Indigo",
+        "canonical": "oklch(50% 0.20 285)",
+        "tonalRamp": []
+      },
+      "primary-active": {
+        "role": "primary",
+        "displayName": "Night Indigo",
+        "canonical": "oklch(43% 0.19 285)",
+        "tonalRamp": []
+      },
+      "primary-soft": {
+        "role": "primary",
+        "displayName": "Indigo Haze",
+        "canonical": "oklch(94% 0.02 285)",
+        "tonalRamp": []
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Cool Canvas",
+        "canonical": "oklch(97.5% 0.004 270)",
+        "tonalRamp": [
+          "oklch(15% 0.01 270)",
+          "oklch(30% 0.01 270)",
+          "oklch(45% 0.008 270)",
+          "oklch(55% 0.008 270)",
+          "oklch(65% 0.006 270)",
+          "oklch(78% 0.005 270)",
+          "oklch(88% 0.004 270)",
+          "oklch(97.5% 0.004 270)"
+        ]
+      },
+      "neutral-border": {
+        "role": "neutral",
+        "displayName": "Silver Thread",
+        "canonical": "oklch(90% 0.008 280)",
+        "tonalRamp": []
+      },
+      "neutral-muted": {
+        "role": "neutral",
+        "displayName": "Slate Muted",
+        "canonical": "oklch(55% 0.02 280)",
+        "tonalRamp": []
+      },
+      "neutral-text": {
+        "role": "neutral",
+        "displayName": "Deep Charcoal",
+        "canonical": "oklch(16% 0.02 280)",
+        "tonalRamp": []
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page title only. Used once per view on the main header."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings within reports, modal titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Subsection headings, sidebar group titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Primary reading text. Max line length 70ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Button text, tab labels, metadata, field labels."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Code blocks, technical data snippets in reports."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hover-lift",
+        "value": "0 4px 12px rgba(99, 102, 241, 0.25), 0 2px 4px rgba(99, 102, 241, 0.1)",
+        "purpose": "Indigo-tinted shadow on primary button hover. Lifts element 2px."
+      },
+      {
+        "name": "floating-panel",
+        "value": "0 2px 8px rgba(0, 0, 0, 0.06)",
+        "purpose": "Minimal shadow for tab bar, sticky headers."
+      },
+      {
+        "name": "modal-backdrop",
+        "value": "0 16px 48px rgba(0, 0, 0, 0.12)",
+        "purpose": "Deep shadow for modals and dialogs."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-change",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Standard easing for state transitions (hover, focus, active). Duration 150-250ms."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary action button. Full-width in Streamlit layout, centered on form submit.",
+      "html": "<button class=\"ds-btn-primary\">\uD83D\uDE80 生成报告</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #6366f1; color: #fff; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.75rem 2rem; border: none; border-radius: 12px; cursor: pointer; transition: background 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s cubic-bezier(0.4,0,0.2,1), transform 0.2s cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { background: #4f46e5; box-shadow: 0 4px 12px rgba(99,102,241,0.25), 0 2px 4px rgba(99,102,241,0.1); transform: translateY(-2px); } .ds-btn-primary:active { background: #4338ca; transform: translateY(0); box-shadow: none; } .ds-btn-primary:disabled { background: #e2e4f0; color: #6b6d8a; cursor: not-allowed; box-shadow: none; transform: none; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input-default",
+      "description": "Search/input field for industry name entry. Full-width with placeholder.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"例如：光模块 CPO、固态电池、人形机器人\">",
+      "css": ".ds-input { width: 100%; font-family: Inter, system-ui, sans-serif; font-size: 1rem; font-weight: 400; color: #1a1a2e; padding: 0.75rem 1.25rem; border: 1px solid #e2e4f0; border-radius: 12px; background: #ffffff; outline: none; transition: border-color 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s cubic-bezier(0.4,0,0.2,1); box-sizing: border-box; } .ds-input::placeholder { color: #6b6d8a; } .ds-input:focus { border-color: #6366f1; box-shadow: 0 0 0 4px rgba(99,102,241,0.15); }"
+    },
+    {
+      "name": "Quick-Select Chip",
+      "kind": "chip",
+      "refersTo": "chip-default",
+      "description": "Compact industry quick-select buttons displayed as a row of pills.",
+      "html": "<button class=\"ds-chip\">光模块 CPO</button><button class=\"ds-chip ds-chip-active\">固态电池</button>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; color: #1a1a2e; padding: 0.5rem 1rem; border: 1px solid #e2e4f0; border-radius: 8px; background: #ffffff; cursor: pointer; transition: border-color 0.15s cubic-bezier(0.4,0,0.2,1), background 0.15s cubic-bezier(0.4,0,0.2,1); } .ds-chip:hover { border-color: #6366f1; background: #eeeffd; } .ds-chip-active { background: #6366f1; color: #ffffff; border-color: #6366f1; }"
+    },
+    {
+      "name": "Sidebar",
+      "kind": "card",
+      "refersTo": "sidebar",
+      "description": "Left configuration panel with API key input, model selector, and metadata.",
+      "html": "<aside class=\"ds-sidebar\"><div class=\"ds-sidebar-header\">⚙️ 配置</div><div class=\"ds-sidebar-section\"><label class=\"ds-sidebar-label\">API Key</label><input class=\"ds-sidebar-input\" type=\"password\" placeholder=\"sk-\u2026\"></div><div class=\"ds-sidebar-divider\"></div><div class=\"ds-sidebar-badge-row\"><span class=\"ds-badge\">AnySearch</span><span class=\"ds-sidebar-meta\">实时搜索</span></div><div class=\"ds-sidebar-meta\" style=\"margin-top:4px;\">技术栈：LangGraph + Streamlit</div></aside>",
+      "css": ".ds-sidebar { background: #ffffff; border-right: 1px solid #e2e4f0; padding: 1.5rem; height: 100%; font-family: Inter, system-ui, sans-serif; } .ds-sidebar-header { font-size: 1.125rem; font-weight: 600; color: #1a1a2e; margin-bottom: 1rem; } .ds-sidebar-label { display: block; font-size: 0.875rem; font-weight: 500; color: #6b6d8a; margin-bottom: 0.375rem; } .ds-sidebar-input { width: 100%; font-size: 0.875rem; padding: 0.625rem 0.875rem; border: 1px solid #e2e4f0; border-radius: 8px; background: #ffffff; color: #1a1a2e; outline: none; box-sizing: border-box; } .ds-sidebar-input:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.15); } .ds-sidebar-divider { height: 1px; background: #e2e4f0; margin: 1rem 0; } .ds-sidebar-meta { font-size: 0.875rem; color: #6b6d8a; } .ds-sidebar-badge-row { display: flex; align-items: center; gap: 8px; margin: 0.75rem 0; } .ds-badge { display: inline-flex; align-items: center; background: #eeeffd; color: #4f46e5; font-size: 0.8rem; font-weight: 600; padding: 2px 10px; border-radius: 9999px; }"
+    },
+    {
+      "name": "Tab Bar",
+      "kind": "nav",
+      "refersTo": "tab-default",
+      "description": "Markdown / HTML preview tabs for generated reports.",
+      "html": "<div class=\"ds-tab-bar\"><button class=\"ds-tab ds-tab-active\">📝 Markdown</button><button class=\"ds-tab\">🌐 HTML 预览</button><div class=\"ds-tab-indicator\"></div></div>",
+      "css": ".ds-tab-bar { display: inline-flex; gap: 0; background: #ffffff; padding: 0.5rem 1.5rem; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #f8f9fc; position: relative; margin-bottom: 1.5rem; } .ds-tab { font-family: Inter, system-ui, sans-serif; font-size: 1rem; font-weight: 600; color: #6b6d8a; background: none; border: none; padding: 1rem 0; margin: 0 0.75rem; cursor: pointer; transition: color 0.2s ease; position: relative; } .ds-tab:hover { color: #6366f1; } .ds-tab-active { color: #6366f1; } .ds-tab-indicator { position: absolute; bottom: 0; left: 1.5rem; width: 6rem; height: 3px; background: #6366f1; border-radius: 3px 3px 0 0; }"
+    },
+    {
+      "name": "Progress Tracker",
+      "kind": "custom",
+      "refersTo": "tracking-progress",
+      "description": "Background workflow progress bar with status message.",
+      "html": "<div class=\"ds-progress-container\"><span class=\"ds-progress-label\">⏳ 正在搜索分析报告... (65%)</span><div class=\"ds-progress-track\"><div class=\"ds-progress-fill\" style=\"width:65%\"></div></div></div>",
+      "css": ".ds-progress-container { width: 100%; font-family: Inter, system-ui, sans-serif; } .ds-progress-label { display: block; font-size: 0.875rem; color: #6b6d8a; margin-bottom: 0.5rem; } .ds-progress-track { width: 100%; height: 8px; background: #e2e4f0; border-radius: 9999px; overflow: hidden; } .ds-progress-fill { height: 100%; background: #6366f1; border-radius: 9999px; transition: width 0.3s ease; }"
+    },
+    {
+      "name": "Alert / Status Box",
+      "kind": "custom",
+      "refersTo": "alert-default",
+      "description": "Status notifications during workflow execution.",
+      "html": "<div class=\"ds-alert-success\">✅ 报告生成完成！</div>",
+      "css": ".ds-alert-success { display: flex; align-items: center; gap: 8px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; color: #1a1a2e; background: #ffffff; padding: 1rem 1.25rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); } .ds-alert-error { display: flex; align-items: center; gap: 8px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; color: #ef4444; background: #ffffff; padding: 1rem 1.25rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); } .ds-alert-info { display: flex; align-items: center; gap: 8px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; color: #6b6d8a; background: #ffffff; padding: 1rem 1.25rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "\"The Dispatch\"",
+    "overview": "A research tool that reads like a tech publication — crisp, editorial, with the energy of a newsroom rather than the silence of a dashboard. The design bridges professional credibility (trustworthy numbers, clear hierarchy) with the vibrant readability of modern tech media (36Kr, PingWest, The Verge). Every element is in service of the core loop: type an industry → see results. No decoration that doesn't earn its place.\n\nThe system explicitly rejects three adjacent aesthetics: the generic SaaS dashboard (gray cards, metric tiles, thin borders), the old-school financial terminal (dark navy, gold accents, dense grids), and the \"AI tool\" cliché (gradient text, glassmorphism, numbered section markers). It lands in the space between — clean like Linear, editorial like Stratechery, purposeful like a terminal but without the bloat.",
+    "keyCharacteristics": [
+      "Content-forward. Search and reading are the primary tasks.",
+      "Low friction. The shortest path from input to output, surfaced in the UI.",
+      "One accent, restrained. Indigo-purple appears on ≤10% of the surface. Its rarity is the point.",
+      "Flat layout with intentional depth. Shadows only appear on interactive elements in hover state.",
+      "Single type family. Inter carries everything — no second font, no display face for headings."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Primary indigo-purple (#6366f1) is reserved for interactive states, active selection, and the primary action. Never decorative. Never on backgrounds.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Dashboard Rule",
+        "body": "Metric tiles, big-number hero sections, and sticky sidebar menus are forbidden. This is a search-and-read tool, not a monitoring console.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Voice Rule",
+        "body": "The primary accent is used on ≤10% of any given screen. Its rarity is the point. If a screen has more than three indigo-purple elements, two of them should be removed or demoted to neutral.",
+        "section": "colors"
+      },
+      {
+        "name": "The Cool Baseline Rule",
+        "body": "Neutrals drift cool (toward 270–285° hue, chroma < 0.02). Never warm. A warm neutral on this canvas reads as a bug.",
+        "section": "colors"
+      },
+      {
+        "name": "The Body First Rule",
+        "body": "Body text at 1rem/400 is the design's anchor. Everything else sizes relative to it. If a heading looks too large, reduce it — display should never exceed 3.25rem on this surface.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-by-Default Rule",
+        "body": "Surfaces are flat at rest. Shadows appear only as a response to interaction.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep backgrounds neutral (Cool Canvas) — the indigo accent earns its place by being rare.",
+      "Do use `text-wrap: balance` on headings, `text-wrap: pretty` on body paragraphs.",
+      "Do cap body text line length at 70ch — research text needs readable line lengths.",
+      "Do use the pill shape (`{rounded.pill}`) only for badges and progress bars — everywhere else uses 8–16px.",
+      "Do use 150–250ms transitions for state changes — users are in flow, don't make them wait.",
+      "Do use skeleton loading states for report content — spinners are reserved for initialization only.",
+      "Do ensure body text contrast ≥4.5:1 against its background (Deep Charcoal on Cool Canvas passes at 14:1)."
+    ],
+    "donts": [
+      "Don't use gradient text (`background-clip: text` gradients) — verbatim from PRODUCT.md's anti-references.",
+      "Don't use glassmorphism, blur-backdrops, or frosted-glass effects — they belong nowhere in this system.",
+      "Don't use numbered section markers (01 / 02 / 03) as decorative scaffolding above sections.",
+      "Don't use side-stripe borders (`border-left` > 1px as colored accent on cards or callouts).",
+      "Don't use big-number metric tiles — this is not a dashboard, this is a research tool.",
+      "Don't use display fonts or serifs for UI labels, buttons, or data — Inter carries everything.",
+      "Don't use dark mode as default — the scene is desktop office during work hours, ambient-lit, light mode fits.",
+      "Don't use bounce or elastic easing on animations — use cubic-bezier(0.4, 0, 0.2, 1) or similar ease-out curves.",
+      "Don't orchestrate page-load animations — content should appear immediately, not sequence in.",
+      "Don't use the primary accent on inactive states — only active/interactive/hover elements get indigo.",
+      "Don't use the SaaS grey-card-plus-icon-plus-label template for empty sections — design empty states that teach."
+    ]
+  }
+}

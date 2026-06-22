@@ -1,0 +1,10 @@
+Running Evals for Industry Research App...
+==========================================
+✅ PASS: 界面加载 (app.py 无语法错误)
+✅ PASS: 依赖健康 (图模块可导入)
+✅ PASS: 工作流初始化 (创建 LangGraph 成功)
+✅ PASS: 基础研报生成 (Markdown 长度达标)
+✅ PASS: HTML转换能力 (HTML 长度达标)
+==========================================
+Total: 5, Passed: 5
+STATUS: ALL PASS
