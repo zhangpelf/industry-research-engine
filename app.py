@@ -6,7 +6,25 @@ from pathlib import Path
 import streamlit as st
 from dotenv import load_dotenv
 
-load_dotenv(Path(__file__).parent / ".env")
+# Load local .env if present (for development); on Streamlit Cloud, secrets take precedence
+load_dotenv(Path(__file__).parent / ".env", override=False)
+
+# Pre-load secrets into environment so downstream code (LLMClient, AnySearchClient) picks them up
+def _bootstrap_secrets():
+    """Copy Streamlit Cloud secrets into os.environ (secrets > .env > empty)."""
+    mapping = {
+        "OPENROUTER_API_KEY": "OPENROUTER_API_KEY",
+        "ANYSEARCH_API_KEY": "ANYSEARCH_API_KEY",
+        "LLM_MODEL": "LLM_MODEL",
+    }
+    for secret_key, env_key in mapping.items():
+        if secret_key in st.secrets and st.secrets[secret_key]:
+            os.environ[env_key] = str(st.secrets[secret_key])
+
+try:
+    _bootstrap_secrets()
+except Exception:
+    pass  # Local dev without secrets.toml — fine, falls back to .env or empty
 
 
 # ---------------------------------------------------------------------------
@@ -405,10 +423,13 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("### 🔧 引擎配置")
 
+    current_key = os.environ.get("OPENROUTER_API_KEY", "")
     api_key = st.text_input(
         "OpenRouter API Key",
         type="password",
+        value=current_key,
         placeholder="sk-or-v1-…",
+        help="已从云端预配置，无需手动输入",
     )
     if api_key:
         os.environ["OPENROUTER_API_KEY"] = api_key.strip()
